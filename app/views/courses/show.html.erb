@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h1>CÁC BÀI HỌC HIỆN CÓ:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chương</th>
+      <th>Nội dung</th>
+      <th>Khóa học</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lessions.each do |lession| %>
+      <tr>
+      <% if lession.course_id == @course.id %>
+        <td><%= lession.chapter %></td>
+        <td><%= truncate(lession.content, length:100) %></td>
+        <td><%= lession.course.name %></td>
+        <td><%= link_to 'Xem', lession %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Trở về', courses_path %>

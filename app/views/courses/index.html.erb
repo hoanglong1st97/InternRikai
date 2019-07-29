@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>CÁC KHÓA HỌC HIỆN CÓ:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tên khóa học</th>
+      <th>Nội dung</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= truncate(course.content, length:100) %><div><%=link_to 'Xem thêm', @course %></div> </td>
+        <td><%= link_to 'Học ngay', course %></td>
+ 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
